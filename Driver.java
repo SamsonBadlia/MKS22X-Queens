@@ -13,7 +13,26 @@ public class Driver{
     System.out.println(b.removeQueen(0,1));
     System.out.println("Printing board with threats and ints");
     System.out.println(b.debug());
-
+    System.out.println("Adding a queen test at 0,1");
+    System.out.println(b.addQueen(0,1));
+    System.out.println("Printing board with threats and ints");
+    System.out.println(b.debug());
+    System.out.println("Adding another queen test at 0,1 Should fail");
+    System.out.println(b.addQueen(0,1));
+    System.out.println("Printing board with threats and ints");
+    System.out.println(b.debug());
+    System.out.println("Adding a queen test at 0,2");
+    System.out.println(b.addQueen(0,2));
+    System.out.println("Printing board with threats and ints");
+    System.out.println(b.debug());
+    System.out.println("Adding a queen test at 1,1");
+    System.out.println(b.addQueen(1,1));
+    System.out.println("Printing board with threats and ints");
+    System.out.println(b.debug());
+    System.out.println("Adding a queen test at 2,0");
+    System.out.println(b.addQueen(2,0));
+    System.out.println("Printing board with threats and ints");
+    System.out.println(b.debug());
   }
 
 }
