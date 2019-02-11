@@ -78,7 +78,19 @@ public class QueenBoard{
   *@throws IllegalStateException when the board starts with any non-zero value
   */
   public boolean solve(){
+    if (board[0][0] != 0 ) throw new IllegalStateException();
+    return solveR(0);
+  }
 
+  private boolean solveR(int c){
+    if (c > board.length) return true;
+    for (int i = 0; i < board.length; i++){
+      if (addQueen(i, c)){
+        if (solveR(c + 1)) return true;
+        else removeQueen(i,c);
+       }
+     }
+    return false;
   }
 
   /**
@@ -86,7 +98,9 @@ public class QueenBoard{
   *@throws IllegalStateException when the board starts with any non-zero value
   */
   public int countSolutions(){
-    
+    if (board[0][0] != 0 ) throw new IllegalStateException();
+    int count = 0;
+    return count;
   }
 
 }
