@@ -99,7 +99,18 @@ public class QueenBoard{
   */
   public int countSolutions(){
     if (board[0][0] != 0 ) throw new IllegalStateException();
+    return countR(0);
+  }
+
+  private int countR(int c){
+    if (c > board.length) return 1;
     int count = 0;
+    for (int i = 0; i < board.length; i++){
+      if (addQueen(i, c)){
+        count += countR(c+1);
+        removeQueen(i,c);
+       }
+     }
     return count;
   }
 
