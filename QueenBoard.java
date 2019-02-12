@@ -10,40 +10,28 @@ public class QueenBoard{
     //check if spot is a threat or queen already there
     if (board[r][c] != 0 ) return false;
     //loops through board and adds a threat "1" to the rest of the row and column and to the diagonals
-    for (int i = 0; i < board.length; i++ ){
-      board[r][i] = board[r][i] + 1;
-      board[i][c] = board[i][c] + 1;
-      // bottom left diagonal
-      if (r - i < board.length && r - i > 0 && c - i < board.length && c - i > 0) board[r - i][c - i] = board[r - i][c - i] + 1;
-      // upper right diagonal
-      if (r + i < board.length && c + i < board.length ) board[r + i][c + i] = board[r + i][c + i] + 1;
-      // upper left diagonal
-      if (r - i < board.length && r - i > 0 && c + i < board.length) board[r - i][c + i] = board[r - i][c + i] + 1;
-      // bottom right diagonal
-      if (r + i < board.length && c - i < board.length && c - i > 0) board[r + i][c - i] = board[r + i][c - i] + 1;
+    for (int i = 1; i < board.length - c; i++ ){
+      board[r][c+i] += 1;
+      //checks for bounds of board
+      if (r-i >= 0) board[r-i][c+i] += 1;
+      if (r+i < board.length) board[r+i][c+i] += 1;
     }
     board[r][c] = -1;
     return true;
   }
 
   public boolean removeQueen(int r, int c){
-    // checks if queen is in that section
+    //check if spot is a threat or queen already there
     if (board[r][c] != -1 ) return false;
-      //loops through board and removes a threat "-1" to the columns and rows and diagonals
-      for (int i = 0; i < board.length; i++ ){
-        board[r][i] = board[r][i] - 1;
-        board[i][c] = board[i][c] - 1;
-        // bottom left diagonal
-        if (r - i < board.length && r - i > 0 && c - i < board.length && c - i > 0) board[r - i][c - i] = board[r - i][c - i] - 1;
-        // upper right diagonal
-        if (r + i < board.length && c + i < board.length ) board[r + i][c + i] = board[r + i][c + i] - 1;
-        // upper left diagonal
-        if (r - i < board.length && r - i > 0 && c + i < board.length) board[r - i][c + i] = board[r - i][c + i] - 1;
-        // bottom right diagonal
-        if (r + i < board.length && c - i < board.length && c - i > 0) board[r + i][c - i] = board[r + i][c - i] - 1;
-      }
-      board[r][c] = 0;
-      return true;
+    //loops through board and adds a threat "1" to the rest of the row and column and to the diagonals
+    for (int i = 1; i < board.length - c; i++ ){
+      board[r][c+i] -= 1;
+      //checks for bounds of board
+      if (r-i >= 0) board[r-i][c+i] -= 1;
+      if (r+i < board.length) board[r+i][c+i] -= 1;
+    }
+    board[r][c] = 0;
+    return true;
   }
 
   public String toString(){
