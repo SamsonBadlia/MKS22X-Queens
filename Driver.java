@@ -39,6 +39,24 @@ public class Driver{
     System.out.println("Should print true");
     System.out.println(c.countSolutions());
     System.out.println("Should be 92");
+
+    QueenBoard d = new QueenBoard(2);
+    System.out.println(d.solve());
+    System.out.println("Should print false");
+    System.out.println(d.countSolutions());
+    System.out.println("Should be 0");
+
+    QueenBoard e = new QueenBoard(10);
+    System.out.println(e.solve());
+    System.out.println("Should print true");
+    System.out.println(e.countSolutions());
+    System.out.println("Should be 724");
+
+    QueenBoard f = new QueenBoard(1);
+    System.out.println(f.solve());
+    System.out.println("Should print true");
+    System.out.println(f.countSolutions());
+    System.out.println("Should be 1");
   }
 
 }
