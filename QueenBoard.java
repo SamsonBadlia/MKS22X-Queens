@@ -72,6 +72,14 @@ public class QueenBoard{
     return s;
   }
 
+  private void clear(){
+    for (int i = 0; i < board.length; i++){
+      for (int j = 0; j < board[0].length; j++){
+        board[i][j] = 0;
+      }
+    }
+  }
+
     /**
   *@return false when the board is not solveable and leaves the board filled with zeros;
   *        true when the board is solveable, and leaves the board in a solved state
@@ -79,11 +87,12 @@ public class QueenBoard{
   */
   public boolean solve(){
     if (board[0][0] != 0 ) throw new IllegalStateException();
+    clear();
     return solveR(0);
   }
 
   private boolean solveR(int c){
-    if (c > board.length) return true;
+    if (c >= board.length) return true;
     for (int i = 0; i < board.length; i++){
       if (addQueen(i, c)){
         if (solveR(c + 1)) return true;
@@ -98,12 +107,13 @@ public class QueenBoard{
   *@throws IllegalStateException when the board starts with any non-zero value
   */
   public int countSolutions(){
+    clear();
     if (board[0][0] != 0 ) throw new IllegalStateException();
     return countR(0);
   }
 
   private int countR(int c){
-    if (c > board.length) return 1;
+    if (c >= board.length) return 1;
     int count = 0;
     for (int i = 0; i < board.length; i++){
       if (addQueen(i, c)){
