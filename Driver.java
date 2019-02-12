@@ -33,6 +33,12 @@ public class Driver{
     System.out.println(b.addQueen(2,0));
     System.out.println("Printing board with threats and ints");
     System.out.println(b.debug());
+
+    QueenBoard c = new QueenBoard(8);
+    System.out.println(c.solve());
+    System.out.println("Should print true");
+    System.out.println(c.countSolutions());
+    System.out.println("Should be 92");
   }
 
 }
